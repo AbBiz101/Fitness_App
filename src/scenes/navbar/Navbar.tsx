@@ -12,7 +12,6 @@ type Props = {
 };
 
 export default function Navbar({ selectedPage, setSelectedPage }: Props) {
-
   const [menuToggled, setMenuToggled] = useState<boolean>(true);
   const isAboveMediumScreen = useMediaQuery("(min-width:1060px)");
   const flexBetween = "flex items-center justify-between";
@@ -65,6 +64,8 @@ export default function Navbar({ selectedPage, setSelectedPage }: Props) {
                 <Bars3Icon className="h-6 w-6 text-white" />
               </button>
             )}
+
+            {!isAboveMediumScreen && menuToggled && <div className="fixed right-0 bottom-0 z-40 h-full w-[300px]"> </div>}
           </div>
         </div>
       </div>
