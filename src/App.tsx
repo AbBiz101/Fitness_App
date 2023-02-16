@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/scenes/navbar/Navbar";
 import { SelectedPage } from "@/shared/type";
+import Home from "./scenes/home/Home";
 
 type Props = {};
 export default function App({}: Props) {
@@ -20,7 +21,7 @@ export default function App({}: Props) {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  },[]);
+  }, []);
 
   return (
     <div className="app bg-gray-20">
@@ -29,7 +30,7 @@ export default function App({}: Props) {
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
       />
+      <Home setSelectedPage={setSelectedPage} />
     </div>
   );
 }
-
