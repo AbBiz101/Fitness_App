@@ -9,16 +9,24 @@ import ActionButton from "@/shared/ActionButton";
 type Props = {
   selectedPage: SelectedPage;
   setSelectedPage: (value: SelectedPage) => void;
+  isTopOfPage: boolean;
 };
 
-export default function Navbar({ selectedPage, setSelectedPage }: Props) {
-  const [menuToggled, setMenuToggled] = useState<boolean>(true);
+export default function Navbar({
+  isTopOfPage,
+  selectedPage,
+  setSelectedPage,
+}: Props) {
+  const [menuToggled, setMenuToggled] = useState<boolean>(false);
   const isAboveMediumScreen = useMediaQuery("(min-width:1060px)");
   const flexBetween = "flex items-center justify-between";
-
+  const navbarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
+  const menu = ["Home", "Benefits", "Our Classes", "Contact Us"];
   return (
     <nav>
-      <div className={`${flexBetween} fixed top-0 z-30 w-full py-6`}>
+      <div
+        className={`${navbarBackground} ${flexBetween} fixed top-0 z-30 w-full py-6`}
+      >
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* left side  */}
@@ -27,28 +35,14 @@ export default function Navbar({ selectedPage, setSelectedPage }: Props) {
             {isAboveMediumScreen ? (
               <div className={`${flexBetween} w-full gap-16`}>
                 <div className={`${flexBetween} gap-8 text-sm`}>
-                  <Link
-                    page="Home"
-                    selectedPage={selectedPage}
-                    setSelectedPage={setSelectedPage}
-                  />
-                  <Link
-                    page="Benefits"
-                    selectedPage={selectedPage}
-                    setSelectedPage={setSelectedPage}
-                  />
-                  <Link
-                    page="Our Classes"
-                    selectedPage={selectedPage}
-                    setSelectedPage={setSelectedPage}
-                  />
-                  <Link
-                    page="Contact Us"
-                    selectedPage={selectedPage}
-                    setSelectedPage={setSelectedPage}
-                  />
+                  {menu.map((item) => (
+                    <Link
+                      page={item}
+                      selectedPage={selectedPage}
+                      setSelectedPage={setSelectedPage}
+                    />
+                  ))}
                 </div>
-
                 <div className={`${flexBetween} gap-8`}>
                   <p>Sign In</p>
                   <ActionButton setSelectedPage={setSelectedPage}>
@@ -65,7 +59,24 @@ export default function Navbar({ selectedPage, setSelectedPage }: Props) {
               </button>
             )}
 
-            {!isAboveMediumScreen && menuToggled && <div className="fixed right-0 bottom-0 z-40 h-full w-[300px]"> </div>}
+            {!isAboveMediumScreen && menuToggled && (
+              <div className="fixed right-0 bottom-0 z-40 h-full w-[250px] bg-primary-100 drop-shadow-xl">
+                <div className="flex justify-end p-12">
+                  <button onClick={() => setMenuToggled(!menuToggled)}>
+                    <XMarkIcon className="h-6 w-6 text-gray-400" />
+                  </button>
+                </div>
+                <div className="ml-[30%] flex flex-col gap-10 text-2xl">
+                  {menu.map((item) => (
+                    <Link
+                      page={item}
+                      selectedPage={selectedPage}
+                      setSelectedPage={setSelectedPage}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
