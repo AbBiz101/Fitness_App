@@ -1,7 +1,10 @@
+import Home from "@/scenes/home/Home";
 import { useState, useEffect } from "react";
 import Navbar from "@/scenes/navbar/Navbar";
 import { SelectedPage } from "@/shared/type";
-import Home from "./scenes/home/Home";
+import Benefits from "@/scenes/benefits/Benefits";
+import OurClasses from "./scenes/ourClasses/OurClasses";
+import ContactUS from "./scenes/contactUS/ContactUS";
 
 type Props = {};
 export default function App({}: Props) {
@@ -31,6 +34,9 @@ export default function App({}: Props) {
         setSelectedPage={setSelectedPage}
       />
       <Home setSelectedPage={setSelectedPage} />
+      <Benefits setSelectedPage={setSelectedPage} />
+      <OurClasses setSelectedPage={setSelectedPage} />
+      <ContactUS setSelectedPage={setSelectedPage} />
     </div>
   );
 }

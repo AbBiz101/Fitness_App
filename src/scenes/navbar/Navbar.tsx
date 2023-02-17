@@ -38,6 +38,7 @@ export default function Navbar({
                   {menu.map((item) => (
                     <Link
                       page={item}
+                      key={item}
                       selectedPage={selectedPage}
                       setSelectedPage={setSelectedPage}
                     />
@@ -70,6 +71,7 @@ export default function Navbar({
                   {menu.map((item) => (
                     <Link
                       page={item}
+                      key={item}
                       selectedPage={selectedPage}
                       setSelectedPage={setSelectedPage}
                     />
