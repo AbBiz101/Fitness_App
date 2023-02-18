@@ -51,7 +51,7 @@ export default function OurClasses({ setSelectedPage }: Props) {
     },
   ];
   return (
-    <section id="ourClasses" className="w-full bg-primary-100 py-40">
+    <section id="ourclasses" className="z-5 w-full bg-primary-100 py-40">
       <motion.div
         onViewportEnter={() => setSelectedPage(SelectedPage.OurClasses)}
       >

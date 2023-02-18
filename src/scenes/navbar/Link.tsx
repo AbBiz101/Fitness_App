@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default function Link({ page, selectedPage, setSelectedPage }: Props) {
-  const lowerCase = page.toLocaleLowerCase().replace(/ /g, "") as SelectedPage
+  const lowerCase = page.toLocaleLowerCase().replace(/ /g, "") as SelectedPage;
   return (
     <AnchorLink
       href={`#${lowerCase}`}

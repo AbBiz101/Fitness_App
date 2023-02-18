@@ -20,12 +20,14 @@ export default function Navbar({
   const [menuToggled, setMenuToggled] = useState<boolean>(false);
   const isAboveMediumScreen = useMediaQuery("(min-width:1060px)");
   const flexBetween = "flex items-center justify-between";
-  const navbarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
+  const navbarBackground = isTopOfPage
+    ? ""
+    : "bg-primary-100 drop-shadow";
   const menu = ["Home", "Benefits", "Our Classes", "Contact Us"];
   return (
     <nav>
       <div
-        className={`${navbarBackground} ${flexBetween} fixed top-0 z-30 w-full py-6`}
+        className={`${navbarBackground} ${flexBetween} fixed top-0 z-40 w-full py-6`}
       >
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
@@ -61,7 +63,7 @@ export default function Navbar({
             )}
 
             {!isAboveMediumScreen && menuToggled && (
-              <div className="fixed right-0 bottom-0 z-40 h-full w-[250px] bg-primary-100 drop-shadow-xl">
+              <div className=" fixed right-0 bottom-0 z-40 h-full w-[250px] bg-primary-100 drop-shadow-xl">
                 <div className="flex justify-end p-12">
                   <button onClick={() => setMenuToggled(!menuToggled)}>
                     <XMarkIcon className="h-6 w-6 text-gray-400" />
