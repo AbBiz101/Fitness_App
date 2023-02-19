@@ -17,17 +17,14 @@ export default function Navbar({
   selectedPage,
   setSelectedPage,
 }: Props) {
+  const flexBetween = "flex items-center justify-between";
   const [menuToggled, setMenuToggled] = useState<boolean>(false);
   const isAboveMediumScreen = useMediaQuery("(min-width:1060px)");
-  const flexBetween = "flex items-center justify-between";
-  const navbarBackground = isTopOfPage
-    ? ""
-    : "bg-primary-100 drop-shadow";
   const menu = ["Home", "Benefits", "Our Classes", "Contact Us"];
   return (
     <nav>
       <div
-        className={`${navbarBackground} ${flexBetween} fixed top-0 z-40 w-full py-6`}
+        className={`${!isTopOfPage && "bg-primary-100 drop-shadow"} ${flexBetween} fixed top-0 z-40 w-full py-6`}
       >
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>

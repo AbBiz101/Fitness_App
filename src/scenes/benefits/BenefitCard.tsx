@@ -1,5 +1,5 @@
-import { SelectedPage } from "@/shared/type";
 import { motion } from "framer-motion";
+import { SelectedPage } from "@/shared/type";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 type Props = {
