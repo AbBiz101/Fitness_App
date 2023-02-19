@@ -24,7 +24,9 @@ export default function Navbar({
   return (
     <nav>
       <div
-        className={`${!isTopOfPage && "bg-primary-100 drop-shadow"} ${flexBetween} fixed top-0 z-40 w-full py-6`}
+        className={`${
+          !isTopOfPage && !menuToggled && "bg-primary-100 drop-shadow"
+        } ${flexBetween} fixed top-0 z-40 w-full py-6`}
       >
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
